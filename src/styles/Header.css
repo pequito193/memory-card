@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'header';
+    src: url(./../fonts/Caveat-VariableFont_wght.ttf);
+}
+
+.header {
+    background-color: rgb(63, 63, 63);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 16px;
+}
+
+.header-title {
+    font-family: 'header', sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+.header-description {
+    font-size: 24px;
+}
