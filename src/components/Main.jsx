@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { newCards, resetGame } from "./NewCards";
+import { getNewCards } from "./NewCards";
 import './../styles/Main.css';
 
 
@@ -11,8 +11,6 @@ function Main() {
 
     const [bestScore, setBestScore] = useState(0);
 
-    let cardArray = [];
-
     function handleScore() {
         setScore(score + 1);
     }
@@ -22,12 +20,12 @@ function Main() {
     }
 
     function restartGame() {
-        const newCards = newCards();
+        const newCards = getNewCards();
         setCards(newCards);
         for(let i = 0; i < unclickedCards.length; i++) {
-            cardArray.concat(<img src={unclickedCards[i,1]} alt='card' />);
+            setCards(<img src={require(`./../images/${unclickedCards[i,1]}`)} alt='card' />)
         }
-        console.log(cardArray);
+        console.log(unclickedCards);
     }
 
     return (
@@ -38,7 +36,7 @@ function Main() {
             </div>
             <button onClick={restartGame} className="restart">Restart Game</button>
             <div className="card-grid">
-                {cardArray}
+                {unclickedCards}
             </div>
         </React.Fragment>
     );
