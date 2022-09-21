@@ -1,26 +1,34 @@
-import React, { useState } from "react";
-import { cardsAvailableArray } from "./CardsAvailable";
+import React, { useEffect, useState } from "react";
+import { resetGame } from "./ResetGame";
 import './../styles/Main.css';
 
 
 function Main() {
 
-    const shuffledCards = cardsAvailableArray.sort(() => 0.5 - Math.random());
+    const [unclickedCards, setCards] = useState([]);
 
-    const cardsToUse = shuffledCards.slice(0,16);
+    const [score, setScore] = useState(0);
 
-    const [unclickedCards, setCards] = useState(cardsToUse);
+    let cardArray = [];
 
-    
-
-    console.log();
+    function restartGame() {
+        const newCards = resetGame();
+        setCards(newCards);
+        for(let i = 0; i < unclickedCards.length; i++) {
+            cardArray.concat(<img src={unclickedCards[i,1]} alt='card' />);
+        }
+        console.log(cardArray);
+    }
 
     return (
         <React.Fragment>
             <div className="scoreboard">
                 <p className="best-score">Best Score:</p>
                 <p className="current-score">Current Score:</p>
-                <div className="card-grid"></div>
+            </div>
+            <button onClick={restartGame} className="restart">Restart Game</button>
+            <div className="card-grid">
+                {cardArray}
             </div>
         </React.Fragment>
     );
