@@ -3,7 +3,23 @@ body {
 }
 
 .scoreboard {
-    padding: 16px;
+    margin: 16px;
     font-weight: bold;
     font-size: 20px;
+}
+
+.restart {
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(132, 51, 139);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 16px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.restart:hover {
+    background-color: rgb(98, 37, 104);
 }
