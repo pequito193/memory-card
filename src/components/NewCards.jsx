@@ -1,6 +1,6 @@
 import { cardsAvailableArray } from "./CardsAvailable";
 
-function resetGame() {
+function newCards() {
     const shuffledCards = cardsAvailableArray.sort(() => 0.5 - Math.random());
 
     const cardsToUse = shuffledCards.slice(0,16);
@@ -8,4 +8,4 @@ function resetGame() {
     return cardsToUse;
 }
 
-export { resetGame };
+export { newCards };
