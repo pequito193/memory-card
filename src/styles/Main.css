@@ -27,6 +27,11 @@ body {
 .card {
     height: 200px;
     width: auto;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05,1.05);
 }
 
 .card-grid {
