@@ -15,7 +15,7 @@ function Main() {
         setScore(score + 1);
     }
 
-    function handleBestScore() {
+    if (score > bestScore) {
         setBestScore(score);
     }
 
@@ -33,8 +33,8 @@ function Main() {
     return (
         <React.Fragment>
             <div className="scoreboard">
-                <p className="best-score">Best Score:{bestScore}</p>
-                <p className="current-score">Current Score:{score}</p>
+                <p className="best-score">Best Score: {bestScore}</p>
+                <p className="current-score">Current Score: {score}</p>
             </div>
             <button onClick={restartGame} className="restart">Restart Game</button>
             <div className="card-grid">
