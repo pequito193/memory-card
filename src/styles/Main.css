@@ -23,3 +23,17 @@ body {
 .restart:hover {
     background-color: rgb(98, 37, 104);
 }
+
+.card {
+    height: 200px;
+    width: auto;
+}
+
+.card-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    margin: 10px;
+}
