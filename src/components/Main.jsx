@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getNewCards } from "./NewCards";
+import { loadNewCards } from "./LoadNewCards";
 import './../styles/Main.css';
 
 
@@ -20,12 +20,14 @@ function Main() {
     }
 
     function restartGame() {
-        const newCards = getNewCards();
+        const newCards = loadNewCards();
         setCards(newCards);
-        for(let i = 0; i < unclickedCards.length; i++) {
-            setCards(<img src={require(`./../images/${unclickedCards[i,1]}`)} alt='card' />)
-        }
-        console.log(unclickedCards);
+        setScore(0);
+    }
+
+    const cardsToDisplay = [];
+    for (let i = 0; i < unclickedCards.length; i++) {
+        cardsToDisplay.push(<img src={require(`./../images/${unclickedCards[i]}`)} className='card' key={unclickedCards[i]} alt='card' />)
     }
 
     return (
@@ -36,7 +38,7 @@ function Main() {
             </div>
             <button onClick={restartGame} className="restart">Restart Game</button>
             <div className="card-grid">
-                {unclickedCards}
+                {cardsToDisplay}
             </div>
         </React.Fragment>
     );
