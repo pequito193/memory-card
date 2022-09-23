@@ -1,18 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { loadNewCards } from "./LoadNewCards";
+import CardDisplay from "./CardDisplay";
 import './../styles/Main.css';
 
 
 function Main() {
 
-    const [unclickedCards, setCards] = useState([]);
+    const [unclickedCards, setUnclickedCards] = useState([]);
+
+    const [clickedCards, setClickedCards] = useState([0]);
 
     const [score, setScore] = useState(0);
 
     const [bestScore, setBestScore] = useState(0);
 
-    function handleScore() {
+    function gameLogic(e) {
+        if (clickedCards.includes(e.target.key)) {
+            restartGame();
+            return;
+        }
         setScore(score + 1);
+
     }
 
     if (score > bestScore) {
@@ -21,13 +29,9 @@ function Main() {
 
     function restartGame() {
         const newCards = loadNewCards();
-        setCards(newCards);
+        setUnclickedCards(newCards);
+        setClickedCards([]);
         setScore(0);
-    }
-
-    const cardsToDisplay = [];
-    for (let i = 0; i < unclickedCards.length; i++) {
-        cardsToDisplay.push(<img src={require(`./../images/${unclickedCards[i]}`)} className='card' key={unclickedCards[i]} alt='card' />)
     }
 
     return (
@@ -37,8 +41,8 @@ function Main() {
                 <p className="current-score">Current Score: {score}</p>
             </div>
             <button onClick={restartGame} className="restart">Restart Game</button>
-            <div className="card-grid">
-                {cardsToDisplay}
+            <div className="card-display">
+                <CardDisplay unclickedCards={unclickedCards} />
             </div>
         </React.Fragment>
     );

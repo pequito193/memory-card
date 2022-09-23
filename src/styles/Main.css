@@ -34,7 +34,7 @@ body {
     transform: scale(1.05,1.05);
 }
 
-.card-grid {
+.card-display {
     display: flex;
     justify-content: center;
     gap: 20px;
