@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { loadNewCards } from "./LoadNewCards";
 import CardDisplay from "./CardDisplay";
 import './../styles/Main.css';
-import { click } from "@testing-library/user-event/dist/click";
 
 
 function Main() {
@@ -15,21 +14,29 @@ function Main() {
 
     const [bestScore, setBestScore] = useState(0);
 
+
+    // Contains the rules and logic of the game
     function gameLogic(e) {
-        if (clickedCards.includes(e.target.key)) {
+        let cardClicked = e.target
+        console.log(cardClicked)
+        if (clickedCards.includes(cardClicked)) {
             restartGame();
             return;
         }
         setScore(score + 1);
-        setClickedCards(clickedCards.push(e.target.id));
+        setClickedCards(clickedCards.push(cardClicked));
         shuffleCards(unclickedCards);
         console.log(clickedCards);
     }
 
+
+    // Updates high score
     if (score > bestScore) {
         setBestScore(score);
     }
 
+
+    // Shuffles the cards
     function shuffleCards(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -37,12 +44,15 @@ function Main() {
         }
     }
 
+
+    // Resets the score and loads a new set of cards to be used
     function restartGame() {
         const newCards = loadNewCards();
         setUnclickedCards(newCards);
         setClickedCards([]);
         setScore(0);
     }
+
 
     return (
         <React.Fragment>
@@ -52,7 +62,7 @@ function Main() {
             </div>
             <button onClick={restartGame} className="restart">Restart Game</button>
             <div className="card-display">
-                <CardDisplay unclickedCards={unclickedCards} />
+                <CardDisplay gameLogic={gameLogic} unclickedCards={unclickedCards} />
             </div>
         </React.Fragment>
     );
