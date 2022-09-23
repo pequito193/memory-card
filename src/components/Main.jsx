@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { loadNewCards } from "./LoadNewCards";
 import CardDisplay from "./CardDisplay";
 import './../styles/Main.css';
+import { click } from "@testing-library/user-event/dist/click";
 
 
 function Main() {
@@ -20,11 +21,20 @@ function Main() {
             return;
         }
         setScore(score + 1);
-
+        setClickedCards(clickedCards.push(e.target.id));
+        shuffleCards(unclickedCards);
+        console.log(clickedCards);
     }
 
     if (score > bestScore) {
         setBestScore(score);
+    }
+
+    function shuffleCards(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
     }
 
     function restartGame() {
