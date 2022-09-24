@@ -8,7 +8,7 @@ function Main() {
 
     const [unclickedCards, setUnclickedCards] = useState([]);
 
-    const [clickedCards, setClickedCards] = useState([0]);
+    const [clickedCards, setClickedCards] = useState([]);
 
     const [score, setScore] = useState(0);
 
