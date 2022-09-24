@@ -1,7 +1,7 @@
 {
   "main.css": "/memory-card/static/css/main.b0ce2155.chunk.css",
-  "main.js": "/memory-card/static/js/main.c3ac20de.chunk.js",
-  "main.js.map": "/memory-card/static/js/main.c3ac20de.chunk.js.map",
+  "main.js": "/memory-card/static/js/main.0421e1ab.chunk.js",
+  "main.js.map": "/memory-card/static/js/main.0421e1ab.chunk.js.map",
   "static/js/1.bc9080d7.chunk.js": "/memory-card/static/js/1.bc9080d7.chunk.js",
   "static/js/1.bc9080d7.chunk.js.map": "/memory-card/static/js/1.bc9080d7.chunk.js.map",
   "runtime~main.js": "/memory-card/static/js/runtime~main.578ba911.js",
@@ -61,6 +61,6 @@
   "static/media/Header.css": "/memory-card/static/media/Caveat-VariableFont_wght.7519ccd6.ttf",
   "static/css/main.b0ce2155.chunk.css.map": "/memory-card/static/css/main.b0ce2155.chunk.css.map",
   "index.html": "/memory-card/index.html",
-  "precache-manifest.302efcccd60581676f15765a559d20b7.js": "/memory-card/precache-manifest.302efcccd60581676f15765a559d20b7.js",
+  "precache-manifest.b3f165d7a4bd748b5f9007af83a7fc30.js": "/memory-card/precache-manifest.b3f165d7a4bd748b5f9007af83a7fc30.js",
   "service-worker.js": "/memory-card/service-worker.js"
 }
