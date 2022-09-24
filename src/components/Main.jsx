@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { loadNewCards } from "./LoadNewCards";
 import CardDisplay from "./CardDisplay";
 import './../styles/Main.css';
@@ -17,16 +17,14 @@ function Main() {
 
     // Contains the rules and logic of the game
     function gameLogic(e) {
-        let cardClicked = e.target
-        console.log(cardClicked)
+        let cardClicked = e.target.src;
         if (clickedCards.includes(cardClicked)) {
             restartGame();
             return;
         }
         setScore(score + 1);
-        setClickedCards(clickedCards.push(cardClicked));
+        setClickedCards(clickedCards.concat(cardClicked));
         shuffleCards(unclickedCards);
-        console.log(clickedCards);
     }
 
 
@@ -52,6 +50,12 @@ function Main() {
         setClickedCards([]);
         setScore(0);
     }
+
+
+    // Loads a fresh set of cards when the page is first opened
+    useEffect(() => {
+        restartGame();
+    }, []);
 
 
     return (
