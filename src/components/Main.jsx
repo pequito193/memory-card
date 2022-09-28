@@ -53,6 +53,8 @@ function Main() {
         setScore(0);
     }
 
+
+    // Changes the amount of cards being played according to player choice
     function handleCardAmount(e) {
         e.preventDefault();
         const numberOfCards = Number(e.target[0].value);
