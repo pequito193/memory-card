@@ -11,7 +11,7 @@ body {
 .restart {
     border: none;
     border-radius: 8px;
-    background-color: rgb(132, 51, 139);
+    background-color: rgb(85, 85, 85);
     color: white;
     font-weight: bold;
     font-size: 20px;
@@ -21,7 +21,7 @@ body {
 }
 
 .restart:hover {
-    background-color: rgb(98, 37, 104);
+    background-color: rgb(55, 55, 55);
 }
 
 .card {
@@ -41,4 +41,49 @@ body {
     flex-shrink: 0;
     flex-wrap: wrap;
     margin: 10px;
+}
+
+.number-input {
+    width: 80px;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 16px;
+}
+
+.number-input-button {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(85, 85, 85);
+    color: white;
+    cursor: pointer;
+}
+
+.number-input-button:hover {
+    background-color: rgb(55, 55, 55);
+}
+
+.card-amount-info,
+form {
+    margin: 4px 16px;
+    font-size: 18px;
+}
+
+form {
+    display: flex;
+    gap: 16px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
