@@ -14,12 +14,14 @@ function Main() {
 
     const [bestScore, setBestScore] = useState(0);
 
+    const [cardAmount, setCardAmount] = useState(16);
+
 
     // Contains the rules and logic of the game
     function gameLogic(e) {
         let cardClicked = e.target.src;
         if (clickedCards.includes(cardClicked)) {
-            restartGame();
+            restartGame(cardAmount);
             return;
         }
         setScore(score + 1);
@@ -44,17 +46,24 @@ function Main() {
 
 
     // Resets the score and loads a new set of cards to be used
-    function restartGame() {
-        const newCards = loadNewCards();
+    function restartGame(n) {
+        const newCards = loadNewCards(n);
         setUnclickedCards(newCards);
         setClickedCards([]);
         setScore(0);
     }
 
+    function handleCardAmount(e) {
+        e.preventDefault();
+        const numberOfCards = Number(e.target[0].value);
+        setCardAmount(numberOfCards);
+        restartGame(numberOfCards);
+    }
+
 
     // Loads a fresh set of cards when the page is first opened
     useEffect(() => {
-        restartGame();
+        restartGame(cardAmount);
     }, []);
 
 
@@ -64,7 +73,12 @@ function Main() {
                 <p className="best-score">Best Score: {bestScore}</p>
                 <p className="current-score">Current Score: {score}</p>
             </div>
-            <button onClick={restartGame} className="restart">Restart Game</button>
+            <form onSubmit={handleCardAmount}>
+                <input className="number-input" type="number" min={1} max={50}/>
+                <button className="number-input-button" type="submit">Set</button>
+            </form>
+            <p className="card-amount-info">Currently playing with {cardAmount} cards.</p>
+            <button onClick={() => restartGame(cardAmount)} className="restart">Restart Game</button>
             <div className="card-display">
                 <CardDisplay gameLogic={gameLogic} unclickedCards={unclickedCards} />
             </div>

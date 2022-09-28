@@ -1,9 +1,9 @@
 import { cardsAvailableArray } from "./CardsAvailable";
 
-function loadNewCards() {
+function loadNewCards(n) {
     const shuffledCards = cardsAvailableArray.sort(() => 0.5 - Math.random());
 
-    const cardsToUse = shuffledCards.slice(0,16);
+    const cardsToUse = shuffledCards.slice(0,n);
 
     let holderVariable;
 
