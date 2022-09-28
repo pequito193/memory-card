@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "a0c2c399aae6537c22eb",
+    "revision": "d0134da5c4caa106ad0c",
     "url": "/memory-card/static/css/main.5c79bd2a.chunk.css"
   },
   {
-    "revision": "a0c2c399aae6537c22eb",
-    "url": "/memory-card/static/js/main.a0c2c399.chunk.js"
+    "revision": "d0134da5c4caa106ad0c",
+    "url": "/memory-card/static/js/main.d0134da5.chunk.js"
   },
   {
     "revision": "bc9080d7edac7a0a75cf",
@@ -228,7 +228,7 @@ self.__precacheManifest = [
     "url": "/memory-card/static/media/Caveat-VariableFont_wght.7519ccd6.ttf"
   },
   {
-    "revision": "79877f7377e5249ac8448b15faf88c40",
+    "revision": "5841e46e558edd7a6bc3835df4e53c56",
     "url": "/memory-card/index.html"
   }
 ];
