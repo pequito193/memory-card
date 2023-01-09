@@ -60,6 +60,7 @@ function Main() {
         const numberOfCards = Number(e.target[0].value);
         setCardAmount(numberOfCards);
         restartGame(numberOfCards);
+        e.target[0].value = '';
     }
 
 
@@ -76,7 +77,7 @@ function Main() {
                 <p className="current-score">Current Score: {score}</p>
             </div>
             <form onSubmit={handleCardAmount}>
-                <input className="number-input" type="number" min={1} max={50}/>
+                <input className="number-input" type="number" min={1} max={50} required={true}/>
                 <button className="number-input-button" type="submit">Set</button>
             </form>
             <p className="card-amount-info">Currently playing with {cardAmount} cards.</p>
